@@ -10,3 +10,5 @@ export type DetailResponse = {
     };
   }[];
 };
+
+export type Pokemon = DetailResponse;

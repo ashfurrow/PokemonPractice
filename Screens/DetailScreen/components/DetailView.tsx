@@ -1,8 +1,9 @@
 import { useMemo } from "react";
-import { DetailResponse } from "../types";
-import { View, Text, StyleSheet, Image, FlatList } from "react-native";
+import { Text, StyleSheet, Image, FlatList } from "react-native";
 
-export function DetailView({ detail }: { detail: DetailResponse }) {
+import { Pokemon } from "../types";
+
+export function DetailView({ detail }: { detail: Pokemon }) {
   const {
     id,
     sprites: { front_default: sprite },

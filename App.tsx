@@ -1,7 +1,8 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
-import "react-native-gesture-handler";
+import "react-native-gesture-handler"; // For navigation stack gestures
+
 import { ListScreen } from "./Screens/ListScreen/ListScreen";
 import { RootStackParamList } from "./navigation";
 import { DetailScreen } from "./Screens/DetailScreen/DetailScreen";
