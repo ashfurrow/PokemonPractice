@@ -13,7 +13,6 @@ export type FetchState<T> =
       error: any
     }
 
-// TODO: unit tests
 export function useFetch<T>(url: string) {
   const [state, setState] = useState<FetchState<T>>({ type: "loading" })
   useEffect(() => {

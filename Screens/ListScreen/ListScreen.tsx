@@ -8,7 +8,6 @@ import { ListView } from "./components/ListView"
 const LIST_ENDPOINT = "https://pokeapi.co/api/v2/pokemon"
 
 export function ListScreen() {
-  // TODO: Handle pagination
   const { state } = useFetch<ListResponse>(LIST_ENDPOINT)
 
   if (state.type === "error") {

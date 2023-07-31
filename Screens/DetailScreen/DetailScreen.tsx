@@ -10,7 +10,6 @@ export function DetailScreen(props: NavigationProps<"Detail">) {
   const { url } = props.route.params
   const { state } = useFetch<DetailResponse>(url)
 
-  // TODO: better abstraction here?
   if (state.type === "error") {
     return (
       <ScreenContainer>
