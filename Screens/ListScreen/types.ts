@@ -1,8 +1,8 @@
-import { Navigation } from "../../navigation";
+import { type Navigation } from "../../navigation"
 
-export type ListResponse = {
-  results: { name: string; url: string }[];
-};
-export type Result = ListResponse["results"][number];
+export interface ListResponse {
+  results: Array<{ name: string; url: string }>
+}
+export type Result = ListResponse["results"][number]
 
-export type ScreenNavigation = Navigation<"List">;
+export type ScreenNavigation = Navigation<"List">

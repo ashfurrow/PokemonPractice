@@ -1,41 +1,41 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
 export type FetchState<T> =
   | {
-      type: "loading";
+      type: "loading"
     }
   | {
-      type: "success";
-      json: T;
+      type: "success"
+      json: T
     }
   | {
-      type: "error";
-      error: any;
-    };
+      type: "error"
+      error: any
+    }
 
 // TODO: unit tests
 export function useFetch<T>(url: string) {
-  const [state, setState] = useState<FetchState<T>>({ type: "loading" });
+  const [state, setState] = useState<FetchState<T>>({ type: "loading" })
   useEffect(() => {
-    const abortController = new AbortController();
+    const abortController = new AbortController()
 
     fetch(url, { signal: abortController.signal })
-      .then((response) => {
+      .then(async (response) => {
         if (response.status !== 200) {
-          throw new Error(`Got non-200 response code: ${response.status}`);
+          throw new Error(`Got non-200 response code: ${response.status}`)
         }
-        return response.json();
+        return await response.json()
       })
       .then((json) => {
-        setState({ type: "success", json });
+        setState({ type: "success", json })
       })
       .catch((error) => {
-        setState({ type: "error", error });
-      });
+        setState({ type: "error", error })
+      })
 
     return () => {
-      abortController.abort();
-    };
-  }, [url]);
-  return { state };
+      abortController.abort()
+    }
+  }, [url])
+  return { state }
 }

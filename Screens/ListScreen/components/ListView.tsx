@@ -1,11 +1,12 @@
-import { FlatList, StyleSheet, TouchableOpacity, Text } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import React from "react"
+import { FlatList, StyleSheet, TouchableOpacity, Text } from "react-native"
+import { useNavigation } from "@react-navigation/native"
 
-import { Result, ScreenNavigation } from "../types";
+import { type Result, type ScreenNavigation } from "../types"
 
-type Props = {
-  list: Result[];
-};
+interface Props {
+  list: Result[]
+}
 export function ListView({ list }: Props) {
   return (
     <FlatList
@@ -13,20 +14,20 @@ export function ListView({ list }: Props) {
       renderItem={({ item }) => <ListItem {...item} />}
       keyExtractor={(item) => item.url}
     />
-  );
+  )
 }
 
 function ListItem({ name, url }: Result) {
-  const navigation = useNavigation<ScreenNavigation>();
+  const navigation = useNavigation<ScreenNavigation>()
   return (
     <TouchableOpacity
       onPress={() => {
-        navigation.push("Detail", { name, url });
+        navigation.push("Detail", { name, url })
       }}
     >
       <Text style={styles.item}>{name}</Text>
     </TouchableOpacity>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -38,4 +39,4 @@ const styles = StyleSheet.create({
     height: 44,
     fontSize: 18,
   },
-});
+})

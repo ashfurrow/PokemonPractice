@@ -1,21 +1,21 @@
-import { useMemo } from "react";
-import { Text, StyleSheet, Image, FlatList } from "react-native";
+import React, { useMemo } from "react"
+import { Text, StyleSheet, Image, FlatList } from "react-native"
 
-import { Pokemon } from "../types";
+import { type Pokemon } from "../types"
 
 export function DetailView({ detail }: { detail: Pokemon }) {
   const {
     id,
     sprites: { front_default: sprite },
     stats,
-  } = detail;
+  } = detail
 
   const data = useMemo(() => {
     return [
       `id: ${id}`,
       ...stats.map((stat) => `${stat.stat.name}: ${stat.base_stat}`),
-    ];
-  }, [id]);
+    ]
+  }, [id])
 
   return (
     <>
@@ -30,7 +30,7 @@ export function DetailView({ detail }: { detail: Pokemon }) {
         keyExtractor={(item) => item}
       />
     </>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
   item: {
     fontSize: 18,
   },
-});
+})

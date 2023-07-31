@@ -1,14 +1,14 @@
-export type DetailResponse = {
-  id: number;
+export interface DetailResponse {
+  id: number
   sprites: {
-    front_default: string | undefined;
-  };
-  stats: {
-    base_stat: string;
+    front_default: string | undefined
+  }
+  stats: Array<{
+    base_stat: string
     stat: {
-      name: string;
-    };
-  }[];
-};
+      name: string
+    }
+  }>
+}
 
-export type Pokemon = DetailResponse;
+export type Pokemon = DetailResponse
