@@ -4,9 +4,9 @@ import { createStackNavigator } from "@react-navigation/stack"
 import { StatusBar } from "expo-status-bar"
 import "react-native-gesture-handler" // For navigation stack gestures
 
-import { ListScreen } from "./Screens/ListScreen/ListScreen"
+import { ListScreen } from "./screens/ListScreen/ListScreen"
 import { type RootStackParamList } from "./navigation"
-import { DetailScreen } from "./Screens/DetailScreen/DetailScreen"
+import { DetailScreen } from "./screens/DetailScreen/DetailScreen"
 
 const Stack = createStackNavigator<RootStackParamList>()
 export function NavigationStack() {
