@@ -1,4 +1,3 @@
-import React from "react"
 import { type NavigationProps } from "../../navigation"
 import { useFetch } from "../../hooks/useFetch"
 import { ScreenContainer } from "../components/ScreenContainer"

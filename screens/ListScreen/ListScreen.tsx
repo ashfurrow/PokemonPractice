@@ -1,4 +1,3 @@
-import React from "react"
 import { useFetch } from "../../hooks/useFetch"
 import { ScreenContainer } from "../components/ScreenContainer"
 import { type ListResponse } from "./types"

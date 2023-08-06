@@ -1,4 +1,3 @@
-import React from "react"
 import type { FetchState } from "../hooks/useFetch"
 import { Text, StyleSheet } from "react-native"
 

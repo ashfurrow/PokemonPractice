@@ -1,5 +1,3 @@
-// TODO: Disable react/react-in-jsx-scope and remove imports
-import React from "react"
 import { FetchLoadResult } from "./FetchLoadResult"
 import { render, screen } from "@testing-library/react-native"
 import type { FetchState } from "../hooks/useFetch"
