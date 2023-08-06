@@ -13,6 +13,7 @@ I'll [blog](https://ashfurrow.com) about this soon, and you can check out the [o
 You need Xcode installed to run the iOS simualator. (Or Android Studio, either should work.) Otherwise, you'll need [node](https://nodejs.org) and [yarn](https://yarnpkg.com) installed.
 
 ```sh
+# install node 18.12.0, see https://stackoverflow.com/questions/76157332/getting-jest-errors-typeerror-cannot-redefine-property-performance
 
 # clone the repo
 
