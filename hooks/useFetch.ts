@@ -10,11 +10,13 @@ export type FetchState<T> =
     }
   | {
       type: "error"
-      error: any
+      error: Error
     }
 
 export function useFetch<T>(url: string) {
-  const [state, setState] = useState<FetchState<T>>({ type: "loading" })
+  const [fetchState, setFetchState] = useState<FetchState<T>>({
+    type: "loading",
+  })
   useEffect(() => {
     const abortController = new AbortController()
 
@@ -26,15 +28,15 @@ export function useFetch<T>(url: string) {
         return await response.json()
       })
       .then((json) => {
-        setState({ type: "success", json })
+        setFetchState({ type: "success", json })
       })
       .catch((error) => {
-        setState({ type: "error", error })
+        setFetchState({ type: "error", error })
       })
 
     return () => {
       abortController.abort()
     }
   }, [url])
-  return { state }
+  return { fetchState }
 }

@@ -1,38 +1,21 @@
 import React from "react"
-import { Text, StyleSheet } from "react-native"
 import { type NavigationProps } from "../../navigation"
 import { useFetch } from "../../hooks/useFetch"
 import { ScreenContainer } from "../components/ScreenContainer"
 import { DetailView } from "./components/DetailView"
 import { type DetailResponse } from "./types"
+import { FetchLoadResult } from "../../components/FetchLoadResult"
 
 export function DetailScreen(props: NavigationProps<"Detail">) {
   const { url } = props.route.params
-  const { state } = useFetch<DetailResponse>(url)
-
-  if (state.type === "error") {
-    return (
-      <ScreenContainer>
-        <Text style={styles.error}>An error occurred: {state.error}</Text>
-      </ScreenContainer>
-    )
-  } else if (state.type === "loading") {
-    return (
-      <ScreenContainer>
-        <Text>Loading...</Text>
-      </ScreenContainer>
-    )
-  }
+  const { fetchState } = useFetch<DetailResponse>(url)
 
   return (
     <ScreenContainer>
-      <DetailView detail={state.json} />
+      <FetchLoadResult
+        fetchState={fetchState}
+        renderResponse={(response) => <DetailView detail={response} />}
+      />
     </ScreenContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  error: {
-    color: "red",
-  },
-})
