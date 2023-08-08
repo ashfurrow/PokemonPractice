@@ -17,6 +17,7 @@ export function useFetch<T>(url: string) {
   const [fetchState, setFetchState] = useState<FetchState<T>>({
     type: "loading",
   })
+
   useEffect(() => {
     const abortController = new AbortController()
 
@@ -38,5 +39,6 @@ export function useFetch<T>(url: string) {
       abortController.abort()
     }
   }, [url])
+
   return { fetchState }
 }
